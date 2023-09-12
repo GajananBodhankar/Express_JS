@@ -10,8 +10,8 @@ app.get("/", (req, res) => {
   res.render("index", { name: "Welcome to dynamic content page" });
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello from express JS");
+app.get("/about", (req, res) => {
+  res.render("about", { title: "Welcome to the about page" });
 });
 
 app.get("/about", (req, res) => {
