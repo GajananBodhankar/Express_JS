@@ -24,7 +24,7 @@ const createDocument = async () => {
       age: 21,
       address: "HYderabad",
     });
-    await data.save().then(() => console.log("Data saved"));
+    await model.insertMany([data]).then(() => console.log("Data saved"));
   } catch (e) {
     console.log("Error", e);
   }
@@ -40,7 +40,7 @@ const insert = async () => {
       age: 45,
       address: "Hyderabad",
     });
-    await raw.save().then(() => console.log("Data added"));
+    await temp.insertMany([raw]).then(()=>console.log('Data added'));
   } catch (e) {
     console.log("Error", e);
   }
