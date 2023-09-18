@@ -13,8 +13,26 @@ const schema = new mongoose.Schema({
 
 const model = mongoose.model("users", schema);
 
+const insert = async () => {
+  try {
+    const insertData = new model({
+      name: "Max",
+      age: 38,
+      address: "Moscow",
+    });
+    await model.insertMany([insertData]).then(() => {
+      console.log("Data added");
+      read();
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+// insert();
+
 const read = async () => {
-  const data = await model.find({name:'Gajanan'},{name:1,_id:0}).select({_id:1})
+  const data = await model.find().select({ name: 1, age: 1, _id: 0 });
   console.log(data);
 };
+
 read();
